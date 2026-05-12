@@ -2,7 +2,7 @@
 
 A full-stack learning platform built for Islamic schools and madrasas. IlmQuest brings together class management, gamified missions, grades, attendance, and parent communication in one focused workspace, designed to help teachers run their classroom and keep families in the loop.
 
-**Live demo:** _coming soon_
+**Live demo:** [iq-demo.onrender.com](https://iq-demo.onrender.com)
 
 ![IlmQuest landing page](frontend/public/imgs/demo-landing.png)
 
