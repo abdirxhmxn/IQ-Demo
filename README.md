@@ -2,6 +2,8 @@
 
 A full-stack learning platform built for Islamic schools and madrasas. IlmQuest brings together class management, gamified missions, grades, attendance, and parent communication in one focused workspace, designed to help teachers run their classroom and keep families in the loop.
 
+**Live demo:** _coming soon_
+
 ![IlmQuest landing page](frontend/public/imgs/demo-landing.png)
 
 ## What it does
@@ -22,7 +24,7 @@ The goal is to make learning feel like progress, not paperwork.
 * **Auth:** Passport.js with local strategy and bcrypt-hashed sessions
 * **Media:** Cloudinary uploads via Multer
 * **Sessions:** connect-mongo
-* **Deploy:** Procfile-ready for Heroku-style hosting
+* **Hosting:** Deployed on Render
 
 ## Highlights
 
