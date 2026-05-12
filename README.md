@@ -1,12 +1,42 @@
-# IQ Demo
+# IlmQuest
 
-A web app for Islamic schools and madrasas that blends class management with gamified missions, grades, attendance, and parent-facing updates. Built with Node/Express, MongoDB, and EJS.
+A full-stack learning platform built for Islamic schools and madrasas. IlmQuest brings together class management, gamified missions, grades, attendance, and parent communication in one focused workspace, designed to help teachers run their classroom and keep families in the loop.
 
-## Quick start
+![IlmQuest landing page](frontend/public/imgs/demo-landing.png)
+
+## What it does
+
+IlmQuest gives every role its own portal:
+
+* **Students** complete gamified missions that earn XP and ranks, track grades, and review reflections from their teachers.
+* **Teachers** plan missions, take attendance, post grades, and share updates with parents.
+* **Parents** stay informed with progress snapshots and classroom communications.
+* **Admins** manage schools, classes, users, and platform-wide content.
+
+The goal is to make learning feel like progress, not paperwork.
+
+## Tech stack
+
+* **Backend:** Node.js, Express, MongoDB with Mongoose
+* **Frontend:** EJS templates with custom CSS
+* **Auth:** Passport.js with local strategy and bcrypt-hashed sessions
+* **Media:** Cloudinary uploads via Multer
+* **Sessions:** connect-mongo
+* **Deploy:** Procfile-ready for Heroku-style hosting
+
+## Highlights
+
+* Role-based access control across four portals from a single codebase
+* Gamified mission system with ranks, XP, and due dates to drive engagement
+* Attendance and grade tracking flows built for everyday classroom use
+* Cloudinary-backed media so teachers can attach images to posts and missions
+* Seed scripts that load realistic demo data, including a curated set of hadith
+
+## Run it locally
 
 ```bash
 npm install
-cp config/.env.example config/.env  # or create config/.env manually
+cp config/.env.example config/.env   # or create config/.env manually
 npm start
 ```
 
@@ -20,26 +50,28 @@ API_KEY=your-cloudinary-api-key
 API_SECRET=your-cloudinary-api-secret
 ```
 
-## Features
-
-- **Admin / Teacher / Student / Parent portals** with EJS templates and themed CSS
-- **Missions** — gamified tasks with ranks, XP, and due dates
-- **Grades**, **Attendance**, **Library / Posts**, **Profiles**
-- **Seeds** — `seed.js`, `seedHadith.js`, `seedInfo.js` to load sample data
+Then visit `http://localhost:2121`.
 
 ## Project layout
 
-- `backend/server.js` — Express entry point
-- `backend/controllers/` — route handlers (auth, home, posts, missions, etc.)
-- `backend/models/` — Mongoose schemas (users, classes, missions, grades, reflections, verses, attendance, communications, posts)
-- `backend/routes/` — Express routes
-- `backend/middleware/` — auth, multer, cloudinary
-- `frontend/views/` — EJS templates (admin, teacher, student, parent)
-- `frontend/public/` — static assets (CSS, images)
+```
+backend/
+  server.js          Express entry point
+  controllers/       Route handlers (auth, home, posts, missions)
+  models/            Mongoose schemas
+  routes/            Express routes
+  middleware/        Auth, multer, cloudinary
+frontend/
+  views/             EJS templates (admin, teacher, student, parent)
+  public/            Static CSS and image assets
+seed.js              Sample data loader
+seedHadith.js        Hadith content loader
+seedInfo.js          Misc demo content
+```
 
 ## Scripts
 
-- `npm start` — run the server with nodemon
+* `npm start` runs the server with nodemon for live reload
 
 ## License
 
