@@ -6,6 +6,19 @@ A full-stack learning platform built for Islamic schools and madrasas. IlmQuest 
 
 ![IlmQuest landing page](frontend/public/imgs/demo-landing.png)
 
+## Try the demo
+
+Four pre-built accounts, one per role. All share the password `DemoPass123!`.
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Admin | `admin@demo.ilmquest.com` | `DemoPass123!` |
+| Teacher | `teacher@demo.ilmquest.com` | `DemoPass123!` |
+| Parent | `parent@demo.ilmquest.com` | `DemoPass123!` |
+| Student | `student@demo.ilmquest.com` | `DemoPass123!` |
+
+Each account is wired into "Demo Academy" with realistic data — classes, attendance, grades, missions, and parent-student links — so every screen has something to look at. See [DEMO_CREDENTIALS.md](DEMO_CREDENTIALS.md) for what to explore on each login.
+
 ## What it does
 
 IlmQuest gives every role its own portal:
@@ -73,7 +86,9 @@ seedInfo.js          Misc demo content
 
 ## Scripts
 
-* `npm start` runs the server with nodemon for live reload
+* `npm start` runs the server
+* `npm run dev` runs the server with nodemon for live reload
+* `npm run seed:demo` resets the database with the Demo Academy fixtures and regenerates `DEMO_CREDENTIALS.md`
 
 ## License
 
