@@ -16,6 +16,14 @@ const cookieParser = require("cookie-parser");
 // Use .env file in project config folder
 require("dotenv").config({ path: path.join(__dirname, "../config/.env") });
 
+if (!process.env.DB_STRING) {
+  console.error("FATAL: DB_STRING is not set. Refusing to start.");
+  process.exit(1);
+}
+
+// Trust Render's reverse proxy so req.protocol / secure cookies behave correctly
+app.set("trust proxy", 1);
+
 // Passport config
 require("./config/passport")(passport);
 
@@ -44,7 +52,7 @@ app.use(methodOverride("_method"));
 app.use(cookieParser());
 app.use(
   session({
-    secret: "keyboard cat",
+    secret: process.env.SESSION_SECRET || "keyboard cat",
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
@@ -54,8 +62,8 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
-      secure: false,  // Set to true if using HTTPS
-      sameSite: 'lax'
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
     },
   })
 );
@@ -74,7 +82,13 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 
+// 404 handler for unknown routes
+app.use((req, res) => {
+  res.status(404).send("Not Found");
+});
+
 //Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
+const PORT = process.env.PORT || 2121;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

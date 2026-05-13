@@ -4,7 +4,8 @@
   "description": "100Devs Social Network",
   "main": "backend/server.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
